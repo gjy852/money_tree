@@ -1,6 +1,6 @@
 class RetirementCalculationsController < ApplicationController
   def index
-    @retirement_calculations = RetirementCalculation.all
+    @retirement_calculations = RetirementCalculation.page(params[:page]).per(10)
 
     render("retirement_calculations/index.html.erb")
   end

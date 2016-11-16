@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "users#index"
   # Routes for the Retirement_assumption resource:
   # CREATE
   get "/retirement_assumptions/new", :controller => "retirement_assumptions", :action => "new"

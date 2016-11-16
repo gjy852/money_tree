@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @retirement_assumption = RetirementAssumption.new
+    @net_worth = NetWorth.new
     @user = User.find(params[:id])
 
     render("users/show.html.erb")

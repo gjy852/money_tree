@@ -75,6 +75,56 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_net_worth" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for asset_total_id -->
+      <div class="form-group">
+        <label for="asset_total_id" class="control-label">
+          Asset total
+        </label>
+
+        <%= select_tag(:asset_total_id, options_from_collection_for_select(Asset.all, :id, :stocks_and_stock_funds), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for liabilities_total_id -->
+      <div class="form-group">
+        <label for="liabilities_total_id" class="control-label">
+          Liabilities total
+        </label>
+
+        <%= select_tag(:liabilities_total_id, options_from_collection_for_select(Liability.all, :id, :mortgage), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for calculated_net_worth -->
+      <div class="form-group">
+        <label for="calculated_net_worth" class="control-label">
+          Calculated net worth
+        </label>
+
+        <input type="text" id="calculated_net_worth" name="calculated_net_worth" placeholder="Calculated net worth" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= @user.id %>">
+
+      <!-- Label and input for net_worth_date -->
+      <div class="form-group">
+        <label for="net_worth_date" class="control-label">
+          Net worth date
+        </label>
+
+        <input type="text" id="net_worth_date" name="net_worth_date" placeholder="Net worth date" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Net Worth
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -106,6 +156,101 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_retirement_assumption" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for age_id -->
+      <div class="form-group">
+        <label for="age_id" class="control-label">
+          Age
+        </label>
+
+        <input type="text" id="age_id" name="age_id" placeholder="Age" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for last_year_saving_id -->
+      <div class="form-group">
+        <label for="last_year_saving_id" class="control-label">
+          Last year saving
+        </label>
+
+        <input type="text" id="last_year_saving_id" name="last_year_saving_id" placeholder="Last year saving" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for investment_return -->
+      <div class="form-group">
+        <label for="investment_return" class="control-label">
+          Investment return
+        </label>
+
+        <input type="text" id="investment_return" name="investment_return" placeholder="Investment return" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for inflation -->
+      <div class="form-group">
+        <label for="inflation" class="control-label">
+          Inflation
+        </label>
+
+        <input type="text" id="inflation" name="inflation" placeholder="Inflation" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for increase_in_savings -->
+      <div class="form-group">
+        <label for="increase_in_savings" class="control-label">
+          Increase in savings
+        </label>
+
+        <input type="text" id="increase_in_savings" name="increase_in_savings" placeholder="Increase in savings" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for annual_savings -->
+      <div class="form-group">
+        <label for="annual_savings" class="control-label">
+          Annual savings
+        </label>
+
+        <input type="text" id="annual_savings" name="annual_savings" placeholder="Annual savings" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for initial_savings -->
+      <div class="form-group">
+        <label for="initial_savings" class="control-label">
+          Initial savings
+        </label>
+
+        <input type="text" id="initial_savings" name="initial_savings" placeholder="Initial savings" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for retirement_income -->
+      <div class="form-group">
+        <label for="retirement_income" class="control-label">
+          Retirement income
+        </label>
+
+        <input type="text" id="retirement_income" name="retirement_income" placeholder="Retirement income" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for retirement_age -->
+      <div class="form-group">
+        <label for="retirement_age" class="control-label">
+          Retirement age
+        </label>
+
+        <input type="text" id="retirement_age" name="retirement_age" placeholder="Retirement age" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= @user.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Retirement Assumption
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

@@ -1,5 +1,7 @@
 ActiveAdmin.register RetirementAssumption do
 
+ permit_params :age_id, :last_year_saving_id, :investment_return, :inflation, :increase_in_savings, :annual_savings, :initial_savings, :retirement_income, :retirement_age, :user_id
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

@@ -24,7 +24,7 @@
           Assumptions
         </label>
 
-        <input type="text" id="assumptions_id" name="assumptions_id" placeholder="Assumptions" class="form-control" value="<%= @retirement_calculation.assumptions_id %>">
+        <%= select_tag(:assumptions_id, options_from_collection_for_select(RetirementAssumption.all, :id, :age_id, @retirement_calculation.assumptions_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for calculation_by_month -->

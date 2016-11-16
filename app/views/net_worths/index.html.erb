@@ -19,7 +19,7 @@
 
       <% @net_worths.each do |net_worth| %>
       <tr>
-        <td><%= net_worth.asset_total_id %></td>
+        <td><%= net_worth.asset_total.stocks_and_stock_funds %></td>
         <td><%= net_worth.liabilities_total_id %></td>
         <td><%= net_worth.calculated_net_worth %></td>
         <td><%= net_worth.user_id %></td>

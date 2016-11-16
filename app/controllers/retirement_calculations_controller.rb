@@ -1,6 +1,7 @@
 class RetirementCalculationsController < ApplicationController
   def index
-    @retirement_calculations = RetirementCalculation.page(params[:page]).per(10)
+    @q = RetirementCalculation.ransack(params[:q])
+    @retirement_calculations = @q.result(:distinct => true).includes(:assumptions, :user).page(params[:page]).per(10)
 
     render("retirement_calculations/index.html.erb")
   end

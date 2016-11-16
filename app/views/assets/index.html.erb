@@ -3,6 +3,129 @@
     Assets
     <a href="/assets/new" class="btn btn-lg btn-success">New Asset</a>
   </h1>
+</div><div class="row mb-1">
+  <div class="col-md-12">
+    <%= search_form_for @q, :class => "collapse", :id => "assets_filters" do |f| %>
+      <p class="lead">Narrow results:</p>
+
+        <div class="form-group">
+  <%= f.label :stocks_and_stock_funds, "Stocks and stock funds" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :stocks_and_stock_funds_gteq, :class => "form-control", :placeholder => "Stocks and stock funds greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :stocks_and_stock_funds_lteq, :class => "form-control", :placeholder => "Stocks and stock funds less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :asset_detailed_info_cont, "Asset detailed info contains" %>
+    <%= f.text_field :asset_detailed_info_cont, :class => "form-control", :placeholder => "Asset detailed info contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :health_savings_account_cont, "Health savings account contains" %>
+    <%= f.text_field :health_savings_account_cont, :class => "form-control", :placeholder => "Health savings account contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :bonds_cont, "Bonds contains" %>
+    <%= f.text_field :bonds_cont, :class => "form-control", :placeholder => "Bonds contains" %>
+  </div>
+
+<div class="form-group">
+  <%= f.label :asset_total, "Asset total" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :asset_total_gteq, :class => "form-control", :placeholder => "Asset total greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :asset_total_lteq, :class => "form-control", :placeholder => "Asset total less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :real_estate, "Real estate" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :real_estate_gteq, :class => "form-control", :placeholder => "Real estate greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :real_estate_lteq, :class => "form-control", :placeholder => "Real estate less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :retirement_account, "Retirement account" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :retirement_account_gteq, :class => "form-control", :placeholder => "Retirement account greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :retirement_account_lteq, :class => "form-control", :placeholder => "Retirement account less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :cash_cont, "Cash contains" %>
+    <%= f.text_field :cash_cont, :class => "form-control", :placeholder => "Cash contains" %>
+  </div>
+
+<div class="form-group">
+          <%= f.label :created_at, "Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='created_atgteqPicker'>
+                  <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='created_atlteqPicker'>
+                  <%= f.text_field :created_at_lteq, :class => "form-control", :placeholder => "Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#created_atgteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atgteqPicker').on("dp.change", function (e) {
+                  $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#created_atlteqPicker').on("dp.change", function (e) {
+                  $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+        
+
+      <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+      <a href="/assets" class="btn btn-default btn-block mb-1">Clear filters</a>
+    <% end %>
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#assets_filters">
+      Show Filters
+    </a>
+  </div>
 </div>
 
 <div class="row">

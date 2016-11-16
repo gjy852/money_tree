@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>Retirement Calculation #<%= @retirement_calculation.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Assumptions</dt>
+      <dd><%= @retirement_calculation.assumptions_id %></dd>
+
+      <dt>Calculation by month</dt>
+      <dd><%= @retirement_calculation.calculation_by_month %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/retirement_calculations" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/retirement_calculations/<%= @retirement_calculation.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_retirement_calculation/<%= @retirement_calculation.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

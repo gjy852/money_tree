@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Retirement_calculation resource:
+  # CREATE
+  get "/retirement_calculations/new", :controller => "retirement_calculations", :action => "new"
+  post "/create_retirement_calculation", :controller => "retirement_calculations", :action => "create"
+
+  # READ
+  get "/retirement_calculations", :controller => "retirement_calculations", :action => "index"
+  get "/retirement_calculations/:id", :controller => "retirement_calculations", :action => "show"
+
+  # UPDATE
+  get "/retirement_calculations/:id/edit", :controller => "retirement_calculations", :action => "edit"
+  post "/update_retirement_calculation/:id", :controller => "retirement_calculations", :action => "update"
+
+  # DELETE
+  get "/delete_retirement_calculation/:id", :controller => "retirement_calculations", :action => "destroy"
+  #------------------------------
+
   # Routes for the Liability resource:
   # CREATE
   get "/liabilities/new", :controller => "liabilities", :action => "new"

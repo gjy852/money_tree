@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @retirement_calculation.errors.any? %>
+  <% @retirement_calculation.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Retirement Calculation #<%= @retirement_calculation.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_retirement_calculation/<%= @retirement_calculation.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for assumptions_id -->
+      <div class="form-group">
+        <label for="assumptions_id" class="control-label">
+          Assumptions
+        </label>
+
+        <input type="text" id="assumptions_id" name="assumptions_id" placeholder="Assumptions" class="form-control" value="<%= @retirement_calculation.assumptions_id %>">
+      </div>
+
+      <!-- Label and input for calculation_by_month -->
+      <div class="form-group">
+        <label for="calculation_by_month" class="control-label">
+          Calculation by month
+        </label>
+
+        <input type="text" id="calculation_by_month" name="calculation_by_month" placeholder="Calculation by month" class="form-control" value="<%= @retirement_calculation.calculation_by_month %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Retirement Calculation
+      </button>
+      or
+      <a href="/retirement_calculations/<%= @retirement_calculation.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

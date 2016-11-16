@@ -6,6 +6,10 @@ class RetirementCalculation < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :user,
+             :through => :assumptions,
+             :source => :user
+
   # Validations
 
 end

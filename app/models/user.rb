@@ -9,6 +9,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :retirement_calculations,
+             :through => :retirement_assumptions,
+             :source => :retirement_calculation
+
   # Validations
 
 end

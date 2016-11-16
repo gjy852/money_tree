@@ -1,5 +1,7 @@
 ActiveAdmin.register RetirementCalculation do
 
+ permit_params :assumptions_id, :calculation_by_month
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

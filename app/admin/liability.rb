@@ -1,5 +1,7 @@
 ActiveAdmin.register Liability do
 
+ permit_params :mortgage, :student_loan, :credit_cards, :liabilities_total
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

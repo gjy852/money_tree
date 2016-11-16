@@ -33,7 +33,7 @@
         <td><%= retirement_assumption.initial_savings %></td>
         <td><%= retirement_assumption.retirement_income %></td>
         <td><%= retirement_assumption.retirement_age %></td>
-        <td><%= retirement_assumption.user_id %></td>
+        <td><%= retirement_assumption.user.age %></td>
         <td>
           <a href="/retirement_assumptions/<%= retirement_assumption.id %>" class="btn btn-primary">Show</a>
           <a href="/retirement_assumptions/<%= retirement_assumption.id %>/edit" class="btn btn-warning">Edit</a>

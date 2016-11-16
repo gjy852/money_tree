@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @liability.errors.any? %>
+  <% @liability.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Liability</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_liability" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for mortgage -->
+      <div class="form-group">
+        <label for="mortgage" class="control-label">
+          Mortgage
+        </label>
+
+        <input type="text" id="mortgage" name="mortgage" placeholder="Mortgage" class="form-control" value="<%= @liability.mortgage %>">
+      </div>
+
+      <!-- Label and input for student_loan -->
+      <div class="form-group">
+        <label for="student_loan" class="control-label">
+          Student loan
+        </label>
+
+        <input type="text" id="student_loan" name="student_loan" placeholder="Student loan" class="form-control" value="<%= @liability.student_loan %>">
+      </div>
+
+      <!-- Label and input for credit_cards -->
+      <div class="form-group">
+        <label for="credit_cards" class="control-label">
+          Credit cards
+        </label>
+
+        <input type="text" id="credit_cards" name="credit_cards" placeholder="Credit cards" class="form-control" value="<%= @liability.credit_cards %>">
+      </div>
+
+      <!-- Label and input for liabilities_total -->
+      <div class="form-group">
+        <label for="liabilities_total" class="control-label">
+          Liabilities total
+        </label>
+
+        <input type="text" id="liabilities_total" name="liabilities_total" placeholder="Liabilities total" class="form-control" value="<%= @liability.liabilities_total %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Liability
+      </button>
+      or
+      <a href="/liabilities">Cancel</a>
+    </form>
+  </div>
+</div>

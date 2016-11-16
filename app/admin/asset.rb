@@ -1,5 +1,7 @@
 ActiveAdmin.register Asset do
 
+ permit_params :stocks_and_stock_funds, :cash, :retirement_account, :real_estate, :asset_total, :bonds, :health_savings_account, :asset_detailed_info
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

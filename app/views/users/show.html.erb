@@ -47,3 +47,96 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many net_worths -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Net_worths
+      </li>
+
+      <% @user.net_worths.each do |net_worth| %>
+        <li class="list-group-item">
+          <a href="/net_worths/<%= net_worth.id %>">
+            <%= net_worth.asset_total_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/net_worths/<%= net_worth.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/net_worths/<%= net_worth.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_net_worth/<%= net_worth.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many retirement_assumptions -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Retirement_assumptions
+      </li>
+
+      <% @user.retirement_assumptions.each do |retirement_assumption| %>
+        <li class="list-group-item">
+          <a href="/retirement_assumptions/<%= retirement_assumption.id %>">
+            <%= retirement_assumption.age_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/retirement_assumptions/<%= retirement_assumption.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/retirement_assumptions/<%= retirement_assumption.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_retirement_assumption/<%= retirement_assumption.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many retirement_calculations -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Retirement_calculations
+      </li>
+
+      <% @user.retirement_calculations.each do |retirement_calculation| %>
+        <li class="list-group-item">
+          <a href="/retirement_calculations/<%= retirement_calculation.id %>">
+            <%= retirement_calculation.assumptions_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/retirement_calculations/<%= retirement_calculation.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/retirement_calculations/<%= retirement_calculation.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_retirement_calculation/<%= retirement_calculation.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

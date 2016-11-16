@@ -33,7 +33,7 @@
           Liabilities total
         </label>
 
-        <input type="text" id="liabilities_total_id" name="liabilities_total_id" placeholder="Liabilities total" class="form-control" value="<%= @net_worth.liabilities_total_id %>">
+        <%= select_tag(:liabilities_total_id, options_from_collection_for_select(Liability.all, :id, :mortgage, @net_worth.liabilities_total_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for calculated_net_worth -->

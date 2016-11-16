@@ -19,10 +19,28 @@
 
       <% @net_worths.each do |net_worth| %>
       <tr>
-        <td><%= net_worth.asset_total.stocks_and_stock_funds %></td>
-        <td><%= net_worth.liabilities_total.mortgage %></td>
+        <td>
+          <% if net_worth.asset_total.present? %>
+            <a href="/assets/<%= net_worth.asset_total.id %>">
+              <%= net_worth.asset_total.stocks_and_stock_funds %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if net_worth.liabilities_total.present? %>
+            <a href="/liabilities/<%= net_worth.liabilities_total.id %>">
+              <%= net_worth.liabilities_total.mortgage %>
+            </a>
+          <% end %>
+        </td>
         <td><%= net_worth.calculated_net_worth %></td>
-        <td><%= net_worth.user.age %></td>
+        <td>
+          <% if net_worth.user.present? %>
+            <a href="/users/<%= net_worth.user.id %>">
+              <%= net_worth.user.age %>
+            </a>
+          <% end %>
+        </td>
         <td><%= net_worth.net_worth_date %></td>
         <td>
           <a href="/net_worths/<%= net_worth.id %>" class="btn btn-primary">Show</a>

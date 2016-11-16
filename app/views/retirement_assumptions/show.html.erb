@@ -33,7 +33,13 @@
       <dd><%= @retirement_assumption.retirement_age %></dd>
 
       <dt>User</dt>
-      <dd><%= @retirement_assumption.user_id %></dd>
+      <dd>
+        <% if @retirement_assumption.user.present? %>
+          <a href="/users/<%= @retirement_assumption.user_id %>">
+            <%= @retirement_assumption.user.age %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

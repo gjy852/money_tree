@@ -16,7 +16,13 @@
 
       <% @retirement_calculations.each do |retirement_calculation| %>
       <tr>
-        <td><%= retirement_calculation.assumptions.age_id %></td>
+        <td>
+          <% if retirement_calculation.assumptions.present? %>
+            <a href="/retirement_assumptions/<%= retirement_calculation.assumptions.id %>">
+              <%= retirement_calculation.assumptions.age_id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= retirement_calculation.calculation_by_month %></td>
         <td>
           <a href="/retirement_calculations/<%= retirement_calculation.id %>" class="btn btn-primary">Show</a>

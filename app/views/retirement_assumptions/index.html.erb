@@ -1,0 +1,46 @@
+<div class="page-header">
+  <h1>
+    Retirement assumptions
+    <a href="/retirement_assumptions/new" class="btn btn-lg btn-success">New Retirement assumption</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Age</th>
+        <th>Last year saving</th>
+        <th>Investment return</th>
+        <th>Inflation</th>
+        <th>Increase in savings</th>
+        <th>Annual savings</th>
+        <th>Initial savings</th>
+        <th>Retirement income</th>
+        <th>Retirement age</th>
+        <th>User</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @retirement_assumptions.each do |retirement_assumption| %>
+      <tr>
+        <td><%= retirement_assumption.age_id %></td>
+        <td><%= retirement_assumption.last_year_saving_id %></td>
+        <td><%= retirement_assumption.investment_return %></td>
+        <td><%= retirement_assumption.inflation %></td>
+        <td><%= retirement_assumption.increase_in_savings %></td>
+        <td><%= retirement_assumption.annual_savings %></td>
+        <td><%= retirement_assumption.initial_savings %></td>
+        <td><%= retirement_assumption.retirement_income %></td>
+        <td><%= retirement_assumption.retirement_age %></td>
+        <td><%= retirement_assumption.user_id %></td>
+        <td>
+          <a href="/retirement_assumptions/<%= retirement_assumption.id %>" class="btn btn-primary">Show</a>
+          <a href="/retirement_assumptions/<%= retirement_assumption.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_retirement_assumption/<%= retirement_assumption.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

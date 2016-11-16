@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Retirement_assumption resource:
+  # CREATE
+  get "/retirement_assumptions/new", :controller => "retirement_assumptions", :action => "new"
+  post "/create_retirement_assumption", :controller => "retirement_assumptions", :action => "create"
+
+  # READ
+  get "/retirement_assumptions", :controller => "retirement_assumptions", :action => "index"
+  get "/retirement_assumptions/:id", :controller => "retirement_assumptions", :action => "show"
+
+  # UPDATE
+  get "/retirement_assumptions/:id/edit", :controller => "retirement_assumptions", :action => "edit"
+  post "/update_retirement_assumption/:id", :controller => "retirement_assumptions", :action => "update"
+
+  # DELETE
+  get "/delete_retirement_assumption/:id", :controller => "retirement_assumptions", :action => "destroy"
+  #------------------------------
+
   # Routes for the Retirement_calculation resource:
   # CREATE
   get "/retirement_calculations/new", :controller => "retirement_calculations", :action => "new"

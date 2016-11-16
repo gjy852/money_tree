@@ -1,0 +1,52 @@
+<div class="page-header">
+  <h3>Retirement Assumption #<%= @retirement_assumption.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Age</dt>
+      <dd><%= @retirement_assumption.age_id %></dd>
+
+      <dt>Last year saving</dt>
+      <dd><%= @retirement_assumption.last_year_saving_id %></dd>
+
+      <dt>Investment return</dt>
+      <dd><%= @retirement_assumption.investment_return %></dd>
+
+      <dt>Inflation</dt>
+      <dd><%= @retirement_assumption.inflation %></dd>
+
+      <dt>Increase in savings</dt>
+      <dd><%= @retirement_assumption.increase_in_savings %></dd>
+
+      <dt>Annual savings</dt>
+      <dd><%= @retirement_assumption.annual_savings %></dd>
+
+      <dt>Initial savings</dt>
+      <dd><%= @retirement_assumption.initial_savings %></dd>
+
+      <dt>Retirement income</dt>
+      <dd><%= @retirement_assumption.retirement_income %></dd>
+
+      <dt>Retirement age</dt>
+      <dd><%= @retirement_assumption.retirement_age %></dd>
+
+      <dt>User</dt>
+      <dd><%= @retirement_assumption.user_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/retirement_assumptions" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/retirement_assumptions/<%= @retirement_assumption.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_retirement_assumption/<%= @retirement_assumption.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

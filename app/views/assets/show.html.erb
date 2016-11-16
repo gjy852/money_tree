@@ -1,0 +1,46 @@
+<div class="page-header">
+  <h3>Asset #<%= @asset.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Stocks and stock funds</dt>
+      <dd><%= @asset.stocks_and_stock_funds %></dd>
+
+      <dt>Cash</dt>
+      <dd><%= @asset.cash %></dd>
+
+      <dt>Retirement account</dt>
+      <dd><%= @asset.retirement_account %></dd>
+
+      <dt>Real estate</dt>
+      <dd><%= @asset.real_estate %></dd>
+
+      <dt>Asset total</dt>
+      <dd><%= @asset.asset_total %></dd>
+
+      <dt>Bonds</dt>
+      <dd><%= @asset.bonds %></dd>
+
+      <dt>Health savings account</dt>
+      <dd><%= @asset.health_savings_account %></dd>
+
+      <dt>Asset detailed info</dt>
+      <dd><%= @asset.asset_detailed_info %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/assets" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/assets/<%= @asset.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_asset/<%= @asset.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

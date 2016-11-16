@@ -1,0 +1,100 @@
+<!-- Validation failure messages -->
+<% if @asset.errors.any? %>
+  <% @asset.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Asset</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_asset" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for stocks_and_stock_funds -->
+      <div class="form-group">
+        <label for="stocks_and_stock_funds" class="control-label">
+          Stocks and stock funds
+        </label>
+
+        <input type="text" id="stocks_and_stock_funds" name="stocks_and_stock_funds" placeholder="Stocks and stock funds" class="form-control" value="<%= @asset.stocks_and_stock_funds %>">
+      </div>
+
+      <!-- Label and input for cash -->
+      <div class="form-group">
+        <label for="cash" class="control-label">
+          Cash
+        </label>
+
+        <input type="text" id="cash" name="cash" placeholder="Cash" class="form-control" value="<%= @asset.cash %>">
+      </div>
+
+      <!-- Label and input for retirement_account -->
+      <div class="form-group">
+        <label for="retirement_account" class="control-label">
+          Retirement account
+        </label>
+
+        <input type="text" id="retirement_account" name="retirement_account" placeholder="Retirement account" class="form-control" value="<%= @asset.retirement_account %>">
+      </div>
+
+      <!-- Label and input for real_estate -->
+      <div class="form-group">
+        <label for="real_estate" class="control-label">
+          Real estate
+        </label>
+
+        <input type="text" id="real_estate" name="real_estate" placeholder="Real estate" class="form-control" value="<%= @asset.real_estate %>">
+      </div>
+
+      <!-- Label and input for asset_total -->
+      <div class="form-group">
+        <label for="asset_total" class="control-label">
+          Asset total
+        </label>
+
+        <input type="text" id="asset_total" name="asset_total" placeholder="Asset total" class="form-control" value="<%= @asset.asset_total %>">
+      </div>
+
+      <!-- Label and input for bonds -->
+      <div class="form-group">
+        <label for="bonds" class="control-label">
+          Bonds
+        </label>
+
+        <input type="text" id="bonds" name="bonds" placeholder="Bonds" class="form-control" value="<%= @asset.bonds %>">
+      </div>
+
+      <!-- Label and input for health_savings_account -->
+      <div class="form-group">
+        <label for="health_savings_account" class="control-label">
+          Health savings account
+        </label>
+
+        <input type="text" id="health_savings_account" name="health_savings_account" placeholder="Health savings account" class="form-control" value="<%= @asset.health_savings_account %>">
+      </div>
+
+      <!-- Label and input for asset_detailed_info -->
+      <div class="form-group">
+        <label for="asset_detailed_info" class="control-label">
+          Asset detailed info
+        </label>
+
+        <input type="text" id="asset_detailed_info" name="asset_detailed_info" placeholder="Asset detailed info" class="form-control" value="<%= @asset.asset_detailed_info %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Asset
+      </button>
+      or
+      <a href="/assets">Cancel</a>
+    </form>
+  </div>
+</div>

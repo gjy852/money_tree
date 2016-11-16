@@ -24,7 +24,7 @@
           Asset total
         </label>
 
-        <input type="text" id="asset_total_id" name="asset_total_id" placeholder="Asset total" class="form-control" value="<%= @net_worth.asset_total_id %>">
+        <%= select_tag(:asset_total_id, options_from_collection_for_select(Asset.all, :id, :stocks_and_stock_funds, @net_worth.asset_total_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for liabilities_total_id -->

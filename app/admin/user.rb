@@ -1,6 +1,6 @@
 ActiveAdmin.register User do
 
- permit_params :age, :first_name, :last_name, :individual_net_worth, :individual_retirement_goal, :annual_savings, :current_income, :email, :password
+ permit_params :age, :first_name, :last_name, :individual_retirement_goal, :annual_savings, :current_income, :email, :password
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

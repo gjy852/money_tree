@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
   def index
     @q = User.ransack(params[:q])
-    @users = @q.result(:distinct => true).includes(:net_worths, :retirement_assumptions, :retirement_calculations).page(params[:page]).per(10)
+    @users = @q.result(:distinct => true).includes(:net_worths, :retirement_assumptions, :assets, :liabilities, :retirement_calculations, :historical_net_worths).page(params[:page]).per(10)
 
     render("users/index.html.erb")
   end
 
   def show
+    @liability = Liability.new
+    @asset = Asset.new
     @retirement_assumption = RetirementAssumption.new
     @net_worth = NetWorth.new
     @user = User.find(params[:id])
@@ -26,7 +28,6 @@ class UsersController < ApplicationController
     @user.age = params[:age]
     @user.first_name = params[:first_name]
     @user.last_name = params[:last_name]
-    @user.individual_net_worth = params[:individual_net_worth]
     @user.individual_retirement_goal = params[:individual_retirement_goal]
     @user.annual_savings = params[:annual_savings]
     @user.current_income = params[:current_income]
@@ -61,7 +62,6 @@ class UsersController < ApplicationController
     @user.age = params[:age]
     @user.first_name = params[:first_name]
     @user.last_name = params[:last_name]
-    @user.individual_net_worth = params[:individual_net_worth]
     @user.individual_retirement_goal = params[:individual_retirement_goal]
     @user.annual_savings = params[:annual_savings]
     @user.current_income = params[:current_income]

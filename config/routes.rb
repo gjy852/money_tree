@@ -1,6 +1,57 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root :to => "users#index"
+  # Routes for the Liability_type resource:
+  # CREATE
+  get "/liability_types/new", :controller => "liability_types", :action => "new"
+  post "/create_liability_type", :controller => "liability_types", :action => "create"
+
+  # READ
+  get "/liability_types", :controller => "liability_types", :action => "index"
+  get "/liability_types/:id", :controller => "liability_types", :action => "show"
+
+  # UPDATE
+  get "/liability_types/:id/edit", :controller => "liability_types", :action => "edit"
+  post "/update_liability_type/:id", :controller => "liability_types", :action => "update"
+
+  # DELETE
+  get "/delete_liability_type/:id", :controller => "liability_types", :action => "destroy"
+  #------------------------------
+
+  # Routes for the Historical_net_worth resource:
+  # CREATE
+  get "/historical_net_worths/new", :controller => "historical_net_worths", :action => "new"
+  post "/create_historical_net_worth", :controller => "historical_net_worths", :action => "create"
+
+  # READ
+  get "/historical_net_worths", :controller => "historical_net_worths", :action => "index"
+  get "/historical_net_worths/:id", :controller => "historical_net_worths", :action => "show"
+
+  # UPDATE
+  get "/historical_net_worths/:id/edit", :controller => "historical_net_worths", :action => "edit"
+  post "/update_historical_net_worth/:id", :controller => "historical_net_worths", :action => "update"
+
+  # DELETE
+  get "/delete_historical_net_worth/:id", :controller => "historical_net_worths", :action => "destroy"
+  #------------------------------
+
+  # Routes for the Asset_type resource:
+  # CREATE
+  get "/asset_types/new", :controller => "asset_types", :action => "new"
+  post "/create_asset_type", :controller => "asset_types", :action => "create"
+
+  # READ
+  get "/asset_types", :controller => "asset_types", :action => "index"
+  get "/asset_types/:id", :controller => "asset_types", :action => "show"
+
+  # UPDATE
+  get "/asset_types/:id/edit", :controller => "asset_types", :action => "edit"
+  post "/update_asset_type/:id", :controller => "asset_types", :action => "update"
+
+  # DELETE
+  get "/delete_asset_type/:id", :controller => "asset_types", :action => "destroy"
+  #------------------------------
+
   # Routes for the Retirement_assumption resource:
   # CREATE
   get "/retirement_assumptions/new", :controller => "retirement_assumptions", :action => "new"

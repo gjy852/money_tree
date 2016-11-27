@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @liability_type.errors.any? %>
+  <% @liability_type.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Liability Type</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_liability_type" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for mortgage -->
+      <div class="form-group">
+        <label for="mortgage" class="control-label">
+          Mortgage
+        </label>
+
+        <input type="text" id="mortgage" name="mortgage" placeholder="Mortgage" class="form-control" value="<%= @liability_type.mortgage %>">
+      </div>
+
+      <!-- Label and input for student_loan -->
+      <div class="form-group">
+        <label for="student_loan" class="control-label">
+          Student loan
+        </label>
+
+        <input type="text" id="student_loan" name="student_loan" placeholder="Student loan" class="form-control" value="<%= @liability_type.student_loan %>">
+      </div>
+
+      <!-- Label and input for credit_card -->
+      <div class="form-group">
+        <label for="credit_card" class="control-label">
+          Credit card
+        </label>
+
+        <input type="text" id="credit_card" name="credit_card" placeholder="Credit card" class="form-control" value="<%= @liability_type.credit_card %>">
+      </div>
+
+      <!-- Label and input for car_loan -->
+      <div class="form-group">
+        <label for="car_loan" class="control-label">
+          Car loan
+        </label>
+
+        <input type="text" id="car_loan" name="car_loan" placeholder="Car loan" class="form-control" value="<%= @liability_type.car_loan %>">
+      </div>
+
+      <!-- Label and input for other_liabilities -->
+      <div class="form-group">
+        <label for="other_liabilities" class="control-label">
+          Other liabilities
+        </label>
+
+        <input type="text" id="other_liabilities" name="other_liabilities" placeholder="Other liabilities" class="form-control" value="<%= @liability_type.other_liabilities %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Liability Type
+      </button>
+      or
+      <a href="/liability_types">Cancel</a>
+    </form>
+  </div>
+</div>

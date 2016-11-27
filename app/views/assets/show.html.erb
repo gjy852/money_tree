@@ -5,29 +5,26 @@
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <dt>Stocks and stock funds</dt>
-      <dd><%= @asset.stocks_and_stock_funds %></dd>
+      <dt>Asset type</dt>
+      <dd>
+        <% if @asset.asset_type.present? %>
+          <a href="/asset_types/<%= @asset.asset_type_id %>">
+            <%= @asset.asset_type.checking_account %>
+          </a>
+        <% end %>
+      </dd>
 
-      <dt>Cash</dt>
-      <dd><%= @asset.cash %></dd>
+      <dt>User</dt>
+      <dd>
+        <% if @asset.user.present? %>
+          <a href="/users/<%= @asset.user_id %>">
+            <%= @asset.user.age %>
+          </a>
+        <% end %>
+      </dd>
 
-      <dt>Retirement account</dt>
-      <dd><%= @asset.retirement_account %></dd>
-
-      <dt>Real estate</dt>
-      <dd><%= @asset.real_estate %></dd>
-
-      <dt>Asset total</dt>
-      <dd><%= @asset.asset_total %></dd>
-
-      <dt>Bonds</dt>
-      <dd><%= @asset.bonds %></dd>
-
-      <dt>Health savings account</dt>
-      <dd><%= @asset.health_savings_account %></dd>
-
-      <dt>Asset detailed info</dt>
-      <dd><%= @asset.asset_detailed_info %></dd>
+      <dt>Asset value</dt>
+      <dd><%= @asset.asset_value %></dd>
 
     </dl>
 

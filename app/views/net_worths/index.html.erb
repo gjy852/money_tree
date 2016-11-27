@@ -9,11 +9,11 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>Asset total</th>
-        <th>Liabilities total</th>
-        <th>Calculated net worth</th>
+        <th>Asset value total</th>
+        <th>Liabilities value total</th>
+        <th>Net worth total</th>
         <th>User</th>
-        <th>Net worth date</th>
+        <th>Date</th>
         <th>Actions</th>
       </tr>
 
@@ -22,18 +22,18 @@
         <td>
           <% if net_worth.asset_total.present? %>
             <a href="/assets/<%= net_worth.asset_total.id %>">
-              <%= net_worth.asset_total.stocks_and_stock_funds %>
+              <%= net_worth.asset_total.created_at %>
             </a>
           <% end %>
         </td>
         <td>
           <% if net_worth.liabilities_total.present? %>
             <a href="/liabilities/<%= net_worth.liabilities_total.id %>">
-              <%= net_worth.liabilities_total.mortgage %>
+              <%= net_worth.liabilities_total.created_at %>
             </a>
           <% end %>
         </td>
-        <td><%= net_worth.calculated_net_worth %></td>
+        <td><%= net_worth.net_worth_total_id %></td>
         <td>
           <% if net_worth.user.present? %>
             <a href="/users/<%= net_worth.user.id %>">
@@ -41,7 +41,7 @@
             </a>
           <% end %>
         </td>
-        <td><%= net_worth.net_worth_date %></td>
+        <td><%= net_worth.date %></td>
         <td>
           <a href="/net_worths/<%= net_worth.id %>" class="btn btn-primary">Show</a>
           <a href="/net_worths/<%= net_worth.id %>/edit" class="btn btn-warning">Edit</a>

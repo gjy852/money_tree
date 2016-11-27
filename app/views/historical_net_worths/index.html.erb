@@ -1,0 +1,43 @@
+<div class="page-header">
+  <h1>
+    Historical net worths
+    <a href="/historical_net_worths/new" class="btn btn-lg btn-success">New Historical net worth</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+        <th>Asset value total</th>
+        <th>Liabilities value total</th>
+        <th>Net worth total</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @historical_net_worths.each do |historical_net_worth| %>
+      <tr>
+        <td><%= historical_net_worth.user_id %></td>
+        <td><%= historical_net_worth.date %></td>
+        <td><%= historical_net_worth.asset_value_total_id %></td>
+        <td><%= historical_net_worth.liabilities_value_total_id %></td>
+        <td>
+          <% if historical_net_worth.net_worth_total.present? %>
+            <a href="/net_worths/<%= historical_net_worth.net_worth_total.id %>">
+              <%= historical_net_worth.net_worth_total.asset_value_total_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <a href="/historical_net_worths/<%= historical_net_worth.id %>" class="btn btn-primary">Show</a>
+          <a href="/historical_net_worths/<%= historical_net_worth.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_historical_net_worth/<%= historical_net_worth.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+    <%= paginate @historical_net_worths, theme: 'twitter-bootstrap-4' %>
+  </div>
+</div>

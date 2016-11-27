@@ -1,7 +1,7 @@
 class LiabilitiesController < ApplicationController
   def index
     @q = Liability.ransack(params[:q])
-    @liabilities = @q.result(:distinct => true).includes(:net_worth).page(params[:page]).per(10)
+    @liabilities = @q.result(:distinct => true).includes(:user, :net_worth, :liabilities_type).page(params[:page]).per(10)
 
     render("liabilities/index.html.erb")
   end
@@ -21,10 +21,10 @@ class LiabilitiesController < ApplicationController
   def create
     @liability = Liability.new
 
-    @liability.mortgage = params[:mortgage]
-    @liability.student_loan = params[:student_loan]
-    @liability.credit_cards = params[:credit_cards]
-    @liability.liabilities_total = params[:liabilities_total]
+    @liability.liabilities_value_total_id = params[:liabilities_value_total_id]
+    @liability.user_id = params[:user_id]
+    @liability.liabilities_type_id = params[:liabilities_type_id]
+    @liability.liabilities_value = params[:liabilities_value]
 
     save_status = @liability.save
 
@@ -51,10 +51,10 @@ class LiabilitiesController < ApplicationController
   def update
     @liability = Liability.find(params[:id])
 
-    @liability.mortgage = params[:mortgage]
-    @liability.student_loan = params[:student_loan]
-    @liability.credit_cards = params[:credit_cards]
-    @liability.liabilities_total = params[:liabilities_total]
+    @liability.liabilities_value_total_id = params[:liabilities_value_total_id]
+    @liability.user_id = params[:user_id]
+    @liability.liabilities_type_id = params[:liabilities_type_id]
+    @liability.liabilities_value = params[:liabilities_value]
 
     save_status = @liability.save
 

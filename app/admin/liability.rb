@@ -1,6 +1,6 @@
 ActiveAdmin.register Liability do
 
- permit_params :mortgage, :student_loan, :credit_cards, :liabilities_total
+ permit_params :liabilities_value_total_id, :user_id, :liabilities_type_id, :liabilities_value
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

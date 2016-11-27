@@ -1,0 +1,121 @@
+<div class="page-header">
+  <h3>Asset Type #<%= @asset_type.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Checking account</dt>
+      <dd><%= @asset_type.checking_account %></dd>
+
+      <dt>Savings account</dt>
+      <dd><%= @asset_type.savings_account %></dd>
+
+      <dt>Other cash equivalents</dt>
+      <dd><%= @asset_type.other_cash_equivalents %></dd>
+
+      <dt>Brokerage</dt>
+      <dd><%= @asset_type.brokerage %></dd>
+
+      <dt>Retirement</dt>
+      <dd><%= @asset_type.retirement %></dd>
+
+      <dt>Real estate</dt>
+      <dd><%= @asset_type.real_estate %></dd>
+
+      <dt>Other invested assets</dt>
+      <dd><%= @asset_type.other_invested_assets %></dd>
+
+      <dt>Principal home</dt>
+      <dd><%= @asset_type.principal_home %></dd>
+
+      <dt>Car</dt>
+      <dd><%= @asset_type.car %></dd>
+
+      <dt>Other use assets</dt>
+      <dd><%= @asset_type.other_use_assets %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/asset_types" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/asset_types/<%= @asset_type.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_asset_type/<%= @asset_type.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- A Asset type has many assets -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Assets
+      </li>
+
+      <% @asset_type.assets.each do |asset| %>
+        <li class="list-group-item">
+          <a href="/assets/<%= asset.id %>">
+            <%= asset.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/assets/<%= asset.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/assets/<%= asset.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_asset/<%= asset.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_asset" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for asset_type_id -->
+      <div class="form-group">
+        <label for="asset_type_id" class="control-label">
+          Asset type
+        </label>
+
+        <%= select_tag(:asset_type_id, options_from_collection_for_select(AssetType.all, :id, :checking_account), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :age), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for asset_value -->
+      <div class="form-group">
+        <label for="asset_value" class="control-label">
+          Asset value
+        </label>
+
+        <input type="text" id="asset_value" name="asset_value" placeholder="Asset value" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Asset
+      </button>
+    </form>
+      </li>
+    </ul>
+  </div>
+</div>

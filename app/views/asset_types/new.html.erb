@@ -1,0 +1,118 @@
+<!-- Validation failure messages -->
+<% if @asset_type.errors.any? %>
+  <% @asset_type.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Asset Type</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_asset_type" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for checking_account -->
+      <div class="form-group">
+        <label for="checking_account" class="control-label">
+          Checking account
+        </label>
+
+        <input type="text" id="checking_account" name="checking_account" placeholder="Checking account" class="form-control" value="<%= @asset_type.checking_account %>">
+      </div>
+
+      <!-- Label and input for savings_account -->
+      <div class="form-group">
+        <label for="savings_account" class="control-label">
+          Savings account
+        </label>
+
+        <input type="text" id="savings_account" name="savings_account" placeholder="Savings account" class="form-control" value="<%= @asset_type.savings_account %>">
+      </div>
+
+      <!-- Label and input for other_cash_equivalents -->
+      <div class="form-group">
+        <label for="other_cash_equivalents" class="control-label">
+          Other cash equivalents
+        </label>
+
+        <input type="text" id="other_cash_equivalents" name="other_cash_equivalents" placeholder="Other cash equivalents" class="form-control" value="<%= @asset_type.other_cash_equivalents %>">
+      </div>
+
+      <!-- Label and input for brokerage -->
+      <div class="form-group">
+        <label for="brokerage" class="control-label">
+          Brokerage
+        </label>
+
+        <input type="text" id="brokerage" name="brokerage" placeholder="Brokerage" class="form-control" value="<%= @asset_type.brokerage %>">
+      </div>
+
+      <!-- Label and input for retirement -->
+      <div class="form-group">
+        <label for="retirement" class="control-label">
+          Retirement
+        </label>
+
+        <input type="text" id="retirement" name="retirement" placeholder="Retirement" class="form-control" value="<%= @asset_type.retirement %>">
+      </div>
+
+      <!-- Label and input for real_estate -->
+      <div class="form-group">
+        <label for="real_estate" class="control-label">
+          Real estate
+        </label>
+
+        <input type="text" id="real_estate" name="real_estate" placeholder="Real estate" class="form-control" value="<%= @asset_type.real_estate %>">
+      </div>
+
+      <!-- Label and input for other_invested_assets -->
+      <div class="form-group">
+        <label for="other_invested_assets" class="control-label">
+          Other invested assets
+        </label>
+
+        <input type="text" id="other_invested_assets" name="other_invested_assets" placeholder="Other invested assets" class="form-control" value="<%= @asset_type.other_invested_assets %>">
+      </div>
+
+      <!-- Label and input for principal_home -->
+      <div class="form-group">
+        <label for="principal_home" class="control-label">
+          Principal home
+        </label>
+
+        <input type="text" id="principal_home" name="principal_home" placeholder="Principal home" class="form-control" value="<%= @asset_type.principal_home %>">
+      </div>
+
+      <!-- Label and input for car -->
+      <div class="form-group">
+        <label for="car" class="control-label">
+          Car
+        </label>
+
+        <input type="text" id="car" name="car" placeholder="Car" class="form-control" value="<%= @asset_type.car %>">
+      </div>
+
+      <!-- Label and input for other_use_assets -->
+      <div class="form-group">
+        <label for="other_use_assets" class="control-label">
+          Other use assets
+        </label>
+
+        <input type="text" id="other_use_assets" name="other_use_assets" placeholder="Other use assets" class="form-control" value="<%= @asset_type.other_use_assets %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Asset Type
+      </button>
+      or
+      <a href="/asset_types">Cancel</a>
+    </form>
+  </div>
+</div>

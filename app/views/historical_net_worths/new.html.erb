@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @historical_net_worth.errors.any? %>
+  <% @historical_net_worth.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Historical Net Worth</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_historical_net_worth" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @historical_net_worth.user_id %>">
+      </div>
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= @historical_net_worth.date %>">
+      </div>
+
+      <!-- Label and input for asset_value_total_id -->
+      <div class="form-group">
+        <label for="asset_value_total_id" class="control-label">
+          Asset value total
+        </label>
+
+        <input type="text" id="asset_value_total_id" name="asset_value_total_id" placeholder="Asset value total" class="form-control" value="<%= @historical_net_worth.asset_value_total_id %>">
+      </div>
+
+      <!-- Label and input for liabilities_value_total_id -->
+      <div class="form-group">
+        <label for="liabilities_value_total_id" class="control-label">
+          Liabilities value total
+        </label>
+
+        <input type="text" id="liabilities_value_total_id" name="liabilities_value_total_id" placeholder="Liabilities value total" class="form-control" value="<%= @historical_net_worth.liabilities_value_total_id %>">
+      </div>
+
+      <!-- Label and input for net_worth_total_id -->
+      <div class="form-group">
+        <label for="net_worth_total_id" class="control-label">
+          Net worth total
+        </label>
+
+        <%= select_tag(:net_worth_total_id, options_from_collection_for_select(NetWorth.all, :id, :asset_value_total_id, @historical_net_worth.net_worth_total_id), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-success">
+        Create Historical Net Worth
+      </button>
+      or
+      <a href="/historical_net_worths">Cancel</a>
+    </form>
+  </div>
+</div>

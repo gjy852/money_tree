@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h1>
+    Liability types
+    <a href="/liability_types/new" class="btn btn-lg btn-success">New Liability type</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Mortgage</th>
+        <th>Student loan</th>
+        <th>Credit card</th>
+        <th>Car loan</th>
+        <th>Other liabilities</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @liability_types.each do |liability_type| %>
+      <tr>
+        <td><%= liability_type.mortgage %></td>
+        <td><%= liability_type.student_loan %></td>
+        <td><%= liability_type.credit_card %></td>
+        <td><%= liability_type.car_loan %></td>
+        <td><%= liability_type.other_liabilities %></td>
+        <td>
+          <a href="/liability_types/<%= liability_type.id %>" class="btn btn-primary">Show</a>
+          <a href="/liability_types/<%= liability_type.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_liability_type/<%= liability_type.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+    <%= paginate @liability_types, theme: 'twitter-bootstrap-4' %>
+  </div>
+</div>

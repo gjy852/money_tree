@@ -18,76 +18,31 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for stocks_and_stock_funds -->
+      <!-- Label and input for asset_type_id -->
       <div class="form-group">
-        <label for="stocks_and_stock_funds" class="control-label">
-          Stocks and stock funds
+        <label for="asset_type_id" class="control-label">
+          Asset type
         </label>
 
-        <input type="text" id="stocks_and_stock_funds" name="stocks_and_stock_funds" placeholder="Stocks and stock funds" class="form-control" value="<%= @asset.stocks_and_stock_funds %>">
+        <%= select_tag(:asset_type_id, options_from_collection_for_select(AssetType.all, :id, :checking_account, @asset.asset_type_id), :class => "form-control") %>
       </div>
 
-      <!-- Label and input for cash -->
+      <!-- Label and input for user_id -->
       <div class="form-group">
-        <label for="cash" class="control-label">
-          Cash
+        <label for="user_id" class="control-label">
+          User
         </label>
 
-        <input type="text" id="cash" name="cash" placeholder="Cash" class="form-control" value="<%= @asset.cash %>">
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :age, @asset.user_id), :class => "form-control") %>
       </div>
 
-      <!-- Label and input for retirement_account -->
+      <!-- Label and input for asset_value -->
       <div class="form-group">
-        <label for="retirement_account" class="control-label">
-          Retirement account
+        <label for="asset_value" class="control-label">
+          Asset value
         </label>
 
-        <input type="text" id="retirement_account" name="retirement_account" placeholder="Retirement account" class="form-control" value="<%= @asset.retirement_account %>">
-      </div>
-
-      <!-- Label and input for real_estate -->
-      <div class="form-group">
-        <label for="real_estate" class="control-label">
-          Real estate
-        </label>
-
-        <input type="text" id="real_estate" name="real_estate" placeholder="Real estate" class="form-control" value="<%= @asset.real_estate %>">
-      </div>
-
-      <!-- Label and input for asset_total -->
-      <div class="form-group">
-        <label for="asset_total" class="control-label">
-          Asset total
-        </label>
-
-        <input type="text" id="asset_total" name="asset_total" placeholder="Asset total" class="form-control" value="<%= @asset.asset_total %>">
-      </div>
-
-      <!-- Label and input for bonds -->
-      <div class="form-group">
-        <label for="bonds" class="control-label">
-          Bonds
-        </label>
-
-        <input type="text" id="bonds" name="bonds" placeholder="Bonds" class="form-control" value="<%= @asset.bonds %>">
-      </div>
-
-      <!-- Label and input for health_savings_account -->
-      <div class="form-group">
-        <label for="health_savings_account" class="control-label">
-          Health savings account
-        </label>
-
-        <input type="text" id="health_savings_account" name="health_savings_account" placeholder="Health savings account" class="form-control" value="<%= @asset.health_savings_account %>">
-      </div>
-
-      <!-- Label and input for asset_detailed_info -->
-      <div class="form-group">
-        <label for="asset_detailed_info" class="control-label">
-          Asset detailed info
-        </label>
-
-        <input type="text" id="asset_detailed_info" name="asset_detailed_info" placeholder="Asset detailed info" class="form-control" value="<%= @asset.asset_detailed_info %>">
+        <input type="text" id="asset_value" name="asset_value" placeholder="Asset value" class="form-control" value="<%= @asset.asset_value %>">
       </div>
 
       <button class="btn btn-warning">

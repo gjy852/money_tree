@@ -1,0 +1,47 @@
+<div class="page-header">
+  <h1>
+    Asset types
+    <a href="/asset_types/new" class="btn btn-lg btn-success">New Asset type</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Checking account</th>
+        <th>Savings account</th>
+        <th>Other cash equivalents</th>
+        <th>Brokerage</th>
+        <th>Retirement</th>
+        <th>Real estate</th>
+        <th>Other invested assets</th>
+        <th>Principal home</th>
+        <th>Car</th>
+        <th>Other use assets</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @asset_types.each do |asset_type| %>
+      <tr>
+        <td><%= asset_type.checking_account %></td>
+        <td><%= asset_type.savings_account %></td>
+        <td><%= asset_type.other_cash_equivalents %></td>
+        <td><%= asset_type.brokerage %></td>
+        <td><%= asset_type.retirement %></td>
+        <td><%= asset_type.real_estate %></td>
+        <td><%= asset_type.other_invested_assets %></td>
+        <td><%= asset_type.principal_home %></td>
+        <td><%= asset_type.car %></td>
+        <td><%= asset_type.other_use_assets %></td>
+        <td>
+          <a href="/asset_types/<%= asset_type.id %>" class="btn btn-primary">Show</a>
+          <a href="/asset_types/<%= asset_type.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_asset_type/<%= asset_type.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+    <%= paginate @asset_types, theme: 'twitter-bootstrap-4' %>
+  </div>
+</div>

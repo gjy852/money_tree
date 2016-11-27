@@ -18,40 +18,40 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for mortgage -->
+      <!-- Label and input for liabilities_value_total_id -->
       <div class="form-group">
-        <label for="mortgage" class="control-label">
-          Mortgage
+        <label for="liabilities_value_total_id" class="control-label">
+          Liabilities value total
         </label>
 
-        <input type="text" id="mortgage" name="mortgage" placeholder="Mortgage" class="form-control" value="<%= @liability.mortgage %>">
+        <input type="text" id="liabilities_value_total_id" name="liabilities_value_total_id" placeholder="Liabilities value total" class="form-control" value="<%= @liability.liabilities_value_total_id %>">
       </div>
 
-      <!-- Label and input for student_loan -->
+      <!-- Label and input for user_id -->
       <div class="form-group">
-        <label for="student_loan" class="control-label">
-          Student loan
+        <label for="user_id" class="control-label">
+          User
         </label>
 
-        <input type="text" id="student_loan" name="student_loan" placeholder="Student loan" class="form-control" value="<%= @liability.student_loan %>">
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :age, @liability.user_id), :class => "form-control") %>
       </div>
 
-      <!-- Label and input for credit_cards -->
+      <!-- Label and input for liabilities_type_id -->
       <div class="form-group">
-        <label for="credit_cards" class="control-label">
-          Credit cards
+        <label for="liabilities_type_id" class="control-label">
+          Liabilities type
         </label>
 
-        <input type="text" id="credit_cards" name="credit_cards" placeholder="Credit cards" class="form-control" value="<%= @liability.credit_cards %>">
+        <%= select_tag(:liabilities_type_id, options_from_collection_for_select(LiabilityType.all, :id, :mortgage, @liability.liabilities_type_id), :class => "form-control") %>
       </div>
 
-      <!-- Label and input for liabilities_total -->
+      <!-- Label and input for liabilities_value -->
       <div class="form-group">
-        <label for="liabilities_total" class="control-label">
-          Liabilities total
+        <label for="liabilities_value" class="control-label">
+          Liabilities value
         </label>
 
-        <input type="text" id="liabilities_total" name="liabilities_total" placeholder="Liabilities total" class="form-control" value="<%= @liability.liabilities_total %>">
+        <input type="text" id="liabilities_value" name="liabilities_value" placeholder="Liabilities value" class="form-control" value="<%= @liability.liabilities_value %>">
       </div>
 
       <button class="btn btn-warning">

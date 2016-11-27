@@ -5,26 +5,26 @@
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <dt>Asset total</dt>
+      <dt>Asset value total</dt>
       <dd>
         <% if @net_worth.asset_total.present? %>
-          <a href="/assets/<%= @net_worth.asset_total_id %>">
-            <%= @net_worth.asset_total.stocks_and_stock_funds %>
+          <a href="/assets/<%= @net_worth.asset_value_total_id %>">
+            <%= @net_worth.asset_total.created_at %>
           </a>
         <% end %>
       </dd>
 
-      <dt>Liabilities total</dt>
+      <dt>Liabilities value total</dt>
       <dd>
         <% if @net_worth.liabilities_total.present? %>
-          <a href="/liabilities/<%= @net_worth.liabilities_total_id %>">
-            <%= @net_worth.liabilities_total.mortgage %>
+          <a href="/liabilities/<%= @net_worth.liabilities_value_total_id %>">
+            <%= @net_worth.liabilities_total.created_at %>
           </a>
         <% end %>
       </dd>
 
-      <dt>Calculated net worth</dt>
-      <dd><%= @net_worth.calculated_net_worth %></dd>
+      <dt>Net worth total</dt>
+      <dd><%= @net_worth.net_worth_total_id %></dd>
 
       <dt>User</dt>
       <dd>
@@ -35,8 +35,8 @@
         <% end %>
       </dd>
 
-      <dt>Net worth date</dt>
-      <dd><%= @net_worth.net_worth_date %></dd>
+      <dt>Date</dt>
+      <dd><%= @net_worth.date %></dd>
 
     </dl>
 
@@ -51,5 +51,92 @@
         Delete
       </a>
     </div>
+  </div>
+</div>
+
+<!-- A Net worth has many historical_net_worths -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Historical_net_worths
+      </li>
+
+      <% @net_worth.historical_net_worths.each do |historical_net_worth| %>
+        <li class="list-group-item">
+          <a href="/historical_net_worths/<%= historical_net_worth.id %>">
+            <%= historical_net_worth.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/historical_net_worths/<%= historical_net_worth.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/historical_net_worths/<%= historical_net_worth.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_historical_net_worth/<%= historical_net_worth.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_historical_net_worth" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for asset_value_total_id -->
+      <div class="form-group">
+        <label for="asset_value_total_id" class="control-label">
+          Asset value total
+        </label>
+
+        <input type="text" id="asset_value_total_id" name="asset_value_total_id" placeholder="Asset value total" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for liabilities_value_total_id -->
+      <div class="form-group">
+        <label for="liabilities_value_total_id" class="control-label">
+          Liabilities value total
+        </label>
+
+        <input type="text" id="liabilities_value_total_id" name="liabilities_value_total_id" placeholder="Liabilities value total" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for net_worth_total_id -->
+      <div class="form-group">
+        <label for="net_worth_total_id" class="control-label">
+          Net worth total
+        </label>
+
+        <%= select_tag(:net_worth_total_id, options_from_collection_for_select(NetWorth.all, :id, :asset_value_total_id), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Historical Net Worth
+      </button>
+    </form>
+      </li>
+    </ul>
   </div>
 </div>

@@ -1,0 +1,74 @@
+<div class="page-header">
+  <h3>Historical Net Worth #<%= @historical_net_worth.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>User</dt>
+      <dd><%= @historical_net_worth.user_id %></dd>
+
+      <dt>Date</dt>
+      <dd><%= @historical_net_worth.date %></dd>
+
+      <dt>Asset value total</dt>
+      <dd><%= @historical_net_worth.asset_value_total_id %></dd>
+
+      <dt>Liabilities value total</dt>
+      <dd><%= @historical_net_worth.liabilities_value_total_id %></dd>
+
+      <dt>Net worth total</dt>
+      <dd>
+        <% if @historical_net_worth.net_worth_total.present? %>
+          <a href="/net_worths/<%= @historical_net_worth.net_worth_total_id %>">
+            <%= @historical_net_worth.net_worth_total.asset_value_total_id %>
+          </a>
+        <% end %>
+      </dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/historical_net_worths" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/historical_net_worths/<%= @historical_net_worth.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_historical_net_worth/<%= @historical_net_worth.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- A Historical net worth has many user -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        User
+      </li>
+
+      <% @historical_net_worth.user.each do |user| %>
+        <li class="list-group-item">
+          <a href="/users/<%= user.id %>">
+            <%= user.age %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/users/<%= user.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/users/<%= user.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_user/<%= user.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

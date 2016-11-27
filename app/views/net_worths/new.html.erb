@@ -18,31 +18,31 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for asset_total_id -->
+      <!-- Label and input for asset_value_total_id -->
       <div class="form-group">
-        <label for="asset_total_id" class="control-label">
-          Asset total
+        <label for="asset_value_total_id" class="control-label">
+          Asset value total
         </label>
 
-        <%= select_tag(:asset_total_id, options_from_collection_for_select(Asset.all, :id, :stocks_and_stock_funds, @net_worth.asset_total_id), :class => "form-control") %>
+        <%= select_tag(:asset_value_total_id, options_from_collection_for_select(Asset.all, :id, :created_at, @net_worth.asset_value_total_id), :class => "form-control") %>
       </div>
 
-      <!-- Label and input for liabilities_total_id -->
+      <!-- Label and input for liabilities_value_total_id -->
       <div class="form-group">
-        <label for="liabilities_total_id" class="control-label">
-          Liabilities total
+        <label for="liabilities_value_total_id" class="control-label">
+          Liabilities value total
         </label>
 
-        <%= select_tag(:liabilities_total_id, options_from_collection_for_select(Liability.all, :id, :mortgage, @net_worth.liabilities_total_id), :class => "form-control") %>
+        <%= select_tag(:liabilities_value_total_id, options_from_collection_for_select(Liability.all, :id, :created_at, @net_worth.liabilities_value_total_id), :class => "form-control") %>
       </div>
 
-      <!-- Label and input for calculated_net_worth -->
+      <!-- Label and input for net_worth_total_id -->
       <div class="form-group">
-        <label for="calculated_net_worth" class="control-label">
-          Calculated net worth
+        <label for="net_worth_total_id" class="control-label">
+          Net worth total
         </label>
 
-        <input type="text" id="calculated_net_worth" name="calculated_net_worth" placeholder="Calculated net worth" class="form-control" value="<%= @net_worth.calculated_net_worth %>">
+        <input type="text" id="net_worth_total_id" name="net_worth_total_id" placeholder="Net worth total" class="form-control" value="<%= @net_worth.net_worth_total_id %>">
       </div>
 
       <!-- Label and input for user_id -->
@@ -54,13 +54,13 @@
         <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :age, @net_worth.user_id), :class => "form-control") %>
       </div>
 
-      <!-- Label and input for net_worth_date -->
+      <!-- Label and input for date -->
       <div class="form-group">
-        <label for="net_worth_date" class="control-label">
-          Net worth date
+        <label for="date" class="control-label">
+          Date
         </label>
 
-        <input type="text" id="net_worth_date" name="net_worth_date" placeholder="Net worth date" class="form-control" value="<%= @net_worth.net_worth_date %>">
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= @net_worth.date %>">
       </div>
 
       <button class="btn btn-success">

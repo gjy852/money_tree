@@ -1,7 +1,7 @@
 class AssetsController < ApplicationController
   def index
     @q = Asset.ransack(params[:q])
-    @assets = @q.result(:distinct => true).includes(:net_worth).page(params[:page]).per(10)
+    @assets = @q.result(:distinct => true).includes(:user, :net_worth, :asset_type).page(params[:page]).per(10)
 
     render("assets/index.html.erb")
   end
@@ -21,14 +21,9 @@ class AssetsController < ApplicationController
   def create
     @asset = Asset.new
 
-    @asset.stocks_and_stock_funds = params[:stocks_and_stock_funds]
-    @asset.cash = params[:cash]
-    @asset.retirement_account = params[:retirement_account]
-    @asset.real_estate = params[:real_estate]
-    @asset.asset_total = params[:asset_total]
-    @asset.bonds = params[:bonds]
-    @asset.health_savings_account = params[:health_savings_account]
-    @asset.asset_detailed_info = params[:asset_detailed_info]
+    @asset.asset_type_id = params[:asset_type_id]
+    @asset.user_id = params[:user_id]
+    @asset.asset_value = params[:asset_value]
 
     save_status = @asset.save
 
@@ -55,14 +50,9 @@ class AssetsController < ApplicationController
   def update
     @asset = Asset.find(params[:id])
 
-    @asset.stocks_and_stock_funds = params[:stocks_and_stock_funds]
-    @asset.cash = params[:cash]
-    @asset.retirement_account = params[:retirement_account]
-    @asset.real_estate = params[:real_estate]
-    @asset.asset_total = params[:asset_total]
-    @asset.bonds = params[:bonds]
-    @asset.health_savings_account = params[:health_savings_account]
-    @asset.asset_detailed_info = params[:asset_detailed_info]
+    @asset.asset_type_id = params[:asset_type_id]
+    @asset.user_id = params[:user_id]
+    @asset.asset_value = params[:asset_value]
 
     save_status = @asset.save
 

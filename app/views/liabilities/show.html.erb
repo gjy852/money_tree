@@ -5,17 +5,29 @@
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <dt>Mortgage</dt>
-      <dd><%= @liability.mortgage %></dd>
+      <dt>Liabilities value total</dt>
+      <dd><%= @liability.liabilities_value_total_id %></dd>
 
-      <dt>Student loan</dt>
-      <dd><%= @liability.student_loan %></dd>
+      <dt>User</dt>
+      <dd>
+        <% if @liability.user.present? %>
+          <a href="/users/<%= @liability.user_id %>">
+            <%= @liability.user.age %>
+          </a>
+        <% end %>
+      </dd>
 
-      <dt>Credit cards</dt>
-      <dd><%= @liability.credit_cards %></dd>
+      <dt>Liabilities type</dt>
+      <dd>
+        <% if @liability.liabilities_type.present? %>
+          <a href="/liability_types/<%= @liability.liabilities_type_id %>">
+            <%= @liability.liabilities_type.mortgage %>
+          </a>
+        <% end %>
+      </dd>
 
-      <dt>Liabilities total</dt>
-      <dd><%= @liability.liabilities_total %></dd>
+      <dt>Liabilities value</dt>
+      <dd><%= @liability.liabilities_value %></dd>
 
     </dl>
 

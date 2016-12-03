@@ -116,7 +116,7 @@
           });
       </script>
 
-        
+
 
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
@@ -163,4 +163,74 @@
     </table>
     <%= paginate @assets, theme: 'twitter-bootstrap-4' %>
   </div>
+</div>
+
+  <form action="/index">
+<div class="page-header">
+  <h1>
+    My Assets
+  </h1>
+
+  <div class="container">
+    <p class="lead">Cash and Cash Equivalents: </p>
+    <div class="form-group">
+      <label for="Checking">Checking Accounts:</label>
+      <input class="form-control" type="text" name="checking" placeholder="Enter total sum of checking accounts">
+
+      <label for="Savings">Saving Accounts:</label>
+      <input class="form-control" type="text" name="savings" placeholder="Enter total sum of Savings accounts">
+
+      <label for="Other Cash Equivalents">Other Cash Equivalents:</label>
+      <input class="form-control" type="text" name="other_cash_equivalents" placeholder="Enter total sum of other cash equivalents">
+    </div>
+  </div>
+
+  <div class="container">
+    <p class="lead">Invested Assets: </p>
+    <div class="form-group">
+      <label for="Brokerage">Brokerage:</label>
+      <input class="form-control" type="text" name="brokerage" placeholder="Enter total sum of brokerage accounts">
+      <label for="Retirement">Retirement Accounts:</label>
+      <input class="form-control" type="text" name="retirement" placeholder="Enter total sum of brokerage accounts">
+      <label for="Business Ownership">Business Ownership:</label>
+      <input class="form-control" type="text" name="business_ownership" placeholder="Enter total sum of business ownership assets">
+    </div>
+  </div>
+
+  <div class="container">
+    <p class="lead">Use Assets: </p>
+    <div class="form-group">
+      <label for="Real Estate">Real Estate:</label>
+      <input class="form-control" type="text" name="real_estate" placeholder="Real estate total">
+      <label for="Cars">Cars:</label>
+      <input class="form-control"type="text" name="cars" placeholder="Car total">
+      <label for="Other Use Assets">Other Use Assets:</label>
+      <input class="form-control" type="text" name="other_use_assets" placeholder="Other use assets">
+    </div>
+  </div>
+
+  <div class="container">
+    <p class="lead">Other: </p>
+    <div class="form-group">
+      <label for="Other Assets">Other:</label>
+      <input class="form-control" type="text" name="other_assets" placeholder="Other Asset total">
+    </div>
+  </div>
+</form>
+
+<button class="btn btn-success">Calculate Assets    </button>
+<hr>
+
+  <h3>
+    My Total Assets (as of <%= Date.today %>):
+  </h3>
+
+  <p>Cash and Cash Equivalents:</p>
+
+  <p>Invested Assets:</p>
+
+  <p>Use Assets:</p>
+
+  <p>Other:</p>
+
 </div>

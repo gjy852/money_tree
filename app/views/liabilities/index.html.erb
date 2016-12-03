@@ -89,7 +89,7 @@
           });
       </script>
 
-        
+
 
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
@@ -128,4 +128,50 @@
     </table>
     <%= paginate @liabilities, theme: 'twitter-bootstrap-4' %>
   </div>
+</div>
+
+<div class="page-header">
+  <h1>
+    My Liabilities
+  </h1>
+
+  <div class="container">
+    <p class="lead">Current Liabilities: </p>
+    <div class="form-group">
+      <label for="Credit Card">Credit Card:</label>
+      <input class="form-control" type="text" name="credit_card" placeholder="Credit cards total">
+
+      <label for="Other Current Liabilities">Other Current Liabilities:</label>
+      <input class="form-control" type="text" name="other_current_liabilities" placeholder="Other current liabilities total">
+    </div>
+  </div>
+  <p class="lead">Long-Term Liabilities: </p>
+  <div class="form-group">
+    <div class="container">
+      <label for="Mortgage">Mortgage:</label>
+      <input class="form-control" type="text" name="mortgage" placeholder="Mortgage total">
+
+      <label for="Student Loan">Student Loans:</label>
+      <input class="form-control" type="text" name="student_loan" placeholder="Student Loans total">
+
+      <label for="Car Loan">Car Loans:</label>
+      <input class="form-control" type="text" name="car_loan" placeholder="Car Loans total">
+
+      <label for="Other Long Term Liabilities">Other Long Term Liabilities:</label>
+      <input class="form-control" type="text" name="other_long_term_liabilities" placeholder="Long term liabilities total">
+    </div>
+  </div>
+</form>
+
+<button class="btn btn-success">Calculate LIabilities </button>
+<hr>
+
+
+<h3>
+  My Total Liabilities (as of <%= Date.today %>):
+</h3>
+
+<p>Current Liabilities:</p>
+<p>Long Term Liabilities:</p>
+
 </div>
